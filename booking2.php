@@ -1,5 +1,6 @@
 <?php
  include("config.php");
+ session_start();
   // $username = "Adarsh";
   // $selectedDate = "2020-06-18";
   // $selTime = "09";
@@ -20,16 +21,26 @@
     $user_id = $_GET['user_id'];
     $selTime = $_GET['time'];
     $selectedDate = $_GET['seldate'];
+
+    $_SESSION['user_name'] = $username;
+    $_SESSION['selTime'] = $selTime;
+    $_SESSION['selectedDate'] = $selectedDate;
+    $_SESSION['user_id'] = $user_id;
+
     $nameOfDay = date('l', strtotime($selectedDate));
-    echo $selTime.":00";
+    //echo $selTime.":00";
     $displayTime = date('h.i A', strtotime($selTime.":00"));
-    echo $displayTime;
+    //echo $displayTime;
 
     $formatedDate = date('F d, Y', strtotime($selectedDate));
   }
 
 
   if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_SESSION['user_name'];
+    $user_id = $_SESSION['user_id'];
+    $selTime =  $_SESSION['selTime'] ;
+    $selectedDate = $_SESSION['selectedDate'];
 
     $client_name = $_POST['client_name'];
     $client_email = $_POST['email'];
@@ -41,10 +52,16 @@
             ({$user_id}, '{$selectedDate}', '{$selTime}:00:00', '{$client_name}', '{$client_email}', '{$description}')";
     echo "<br>Sql " . $sql;
     if ($db->query($sql) === TRUE) {
-      echo "New record created successfully";
+      $_SESSION['selTime'] = $selTime;
+      $_SESSION['selectedDate'] = $selectedDate;
+      //selTime=09&selectedDate=2020-01-12
+        header("Location: confirmPage.php?selTime=".$selTime."&selectedDate=".$selectedDate);
+
+      echo "record created successfully";
     } else {
       echo "Error: " . $sql . "<br>" . $conn->error;
     }
+
 
   }
  ?>

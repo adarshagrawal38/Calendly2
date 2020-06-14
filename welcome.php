@@ -17,12 +17,12 @@ if (isset($_SESSION['user_id'])) {
 
     <!-- Bootstrap CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+   <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+   <!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
    <link rel="stylesheet" href="./css/welcomeStyle.css">
     <title>Calendely</title>
   </head>
-  <body>
+  <body >
 
     <div class="container">
       <div class="topnav">
@@ -39,17 +39,33 @@ if (isset($_SESSION['user_id'])) {
       include("config.php");
 
       $sql = "SELECT DATEDIFF(`meeting_date`, now()) AS 'DateDiff', TIMESTAMPDIFF(MINUTE,now() , `meeting_time`) AS 'timeDiff', `meeting_id`, `user_id`, `meeting_date`, `meeting_time`, `client_name`, `client_email`, `description` FROM `meetings` WHERE user_id = {$user_id} and(DATEDIFF(`meeting_date`, now()) > 0 OR (DATEDIFF(`meeting_date`, now()) = 0 and TIMESTAMPDIFF(MINUTE,now() , `meeting_time`) > 0))";
-      echo $sql;
+      //echo $sql;
       $result = mysqli_query($db,$sql);
       while($row = $result->fetch_assoc()) {
        ?>
       <div class="card">
-        <h5 class="card-header"> <?php echo $row['meeting_date']; ?> </h5>
+        <h5 class="card-header"> <?php
+        $selectedDate = $row['meeting_date'];
+        $nameOfDay = date('l', strtotime($selectedDate));
+        $formatedDate = date('d F, Y', strtotime($selectedDate));
+         echo $nameOfDay.", ".$formatedDate; ?> </h5>
+
         <div class="card-body">
-          <h5 class="card-title"> <?php echo $row['client_name']; ?> </h5>
-          <p class="card-text"><strong> <?php echo $row['meeting_time']; ?> </strong> </p>
-          <p class="card-text"> <?php echo $row['description']; ?> </p>
-          <a href="#" class="btn btn-primary">Cancel</a>
+        <div class="row">
+          <div class="col-5">
+            <p class="card-text" style="color: green;"><strong> <?php
+            $selTime = $row['meeting_time'];
+            //echo strtotime(substr($selTime, 0, 5));
+            $displayTime = date('h.i A', strtotime($selTime));
+            echo $displayTime; ?> </strong> </p>
+          </div>
+          <div class="col-auto">
+            <h5 class="card-title"><strong> <?php
+          echo $row['client_name']; ?> </strong></h5>
+              <p class="card-text"> <?php echo $row['description']; ?> </p>
+          </div>
+
+        </div>
         </div>
       </div>
       <br>
@@ -58,9 +74,9 @@ if (isset($_SESSION['user_id'])) {
     </div>
 
 
-    <h1>Welcome User</h1>
+    <!-- <h1>Welcome User</h1> -->
     <?php
-      print_r($_SESSION['user_id']);
+      //print_r($_SESSION['user_id']);
     ?>
 
   </body>

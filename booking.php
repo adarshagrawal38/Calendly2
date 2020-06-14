@@ -97,7 +97,7 @@ $endTime = "";
              if ($onlyHrs>=$startHrs && $onlyHrs < $endHrs) {
                //check wheather slot is availabel
                echo "<br> Time in range";
-               $bookSql = "Select * from meetings where meeting_date = '{$booking_date}' and meeting_time = '{$onlyHrs}:00'";
+               $bookSql = "Select * from meetings where meeting_date = '{$booking_date}' and meeting_time = '{$onlyHrs}:00' and user_id=".$_SESSION['user_id'];
                echo "<br> Sql {$bookSql}";
 
                $result = mysqli_query($db,$bookSql);
@@ -121,7 +121,6 @@ $endTime = "";
                header("location: booking.php?error={$msg}&user_id={$user_id}");
                echo "<br> Time out of range";
                //header("Location: http://www.example.com/another-page.php");
-
              }
 
            }
@@ -191,12 +190,11 @@ $endTime = "";
                   <!--Date picker -->
                   <input type="date" class="form-control" name="datePicker" id="datePicker"> <br>
                   <p class="card-text">Meeting Time</p>
-                  <select name="time" class="form-control"><?php echo get_times();?></select>
+                  <select name="time" class="form-control"><?php echo get_times();?></select> <br>
                     <!-- <input class="form-control" type="time" id="timePicker" name="timePicker"> <br> -->
                     <button type="submit" class="btn btn-primary" name="button">Proceed</button>
                 </div>
                 </form>
-
               </div>
 
 
