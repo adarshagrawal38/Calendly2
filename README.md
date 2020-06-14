@@ -3,8 +3,8 @@ Helps user to fix meeting with clients and friends.
 
 # Database
 Mysql Database is used in the project.
-->database is hosted on aws.
--> you want to import it locally you can use ./database/celendly.sql, and change connection parameters in config.php.
+database is hosted on aws,
+if you want to import it locally you can use ./database/celendly.sql, and change connection parameters in config.php.
 
 # Registration Number
 19MCA0097
