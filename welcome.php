@@ -27,7 +27,7 @@ if (isset($_SESSION['user_id'])) {
     <div class="container">
       <div class="topnav">
         <a class="active" href="./welcome.php">Upcomming</a>
-        <a href="./Completed.php">Completed</a>
+        <a href="./completed.php">Completed</a>
         <a href="./logout.php">LogOut</a>
       </div>
       <div class="jumbotron">

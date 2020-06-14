@@ -16,12 +16,12 @@ $user_id = $_SESSION['user_id'];
    <link rel="stylesheet" href="./css/welcomeStyle.css">
     <title>Calendely</title>
   </head>
-  <body style="background-color: #353943;">
+  <body >
 
     <div class="container">
       <div class="topnav">
         <a  href="./welcome.php">Upcomming</a>
-        <a class="active" href="./Completed.php">Completed</a>
+        <a class="active" href="./completed.php">Completed</a>
           <a href="./logout.php">LogOut</a>
       </div>
       <div class="jumbotron">

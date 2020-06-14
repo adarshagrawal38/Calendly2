@@ -61,14 +61,16 @@
             <h5 class="card-title text-center">Sign In</h5>
             <form class="form-signin" action = "" method = "post">
               <div class="form-label-group">
-                <label for="inputEmail" class="form-control-label">Email address</label>
+
                 <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
+                <label for="inputEmail" class="form-control-label">Email address</label>
 
               </div>
 
               <div class="form-label-group">
-                <label for="inputPassword" class="form-control-label">Password</label>
+
                 <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+                  <label for="inputPassword" class="form-control-label">Password</label>
               </div>
               <br>
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>

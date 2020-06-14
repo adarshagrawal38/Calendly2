@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -10,7 +11,7 @@
    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
     <title>Error</title>
   </head>
-  <body style="background-color: #353943;"> 
+  <body style="background-color: #353943;">
     <div class="jumbotron">
       <h1>UnAuthurized Access</h1>
       <p>you are not allowe to use API</p>
