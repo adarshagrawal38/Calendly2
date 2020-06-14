@@ -67,7 +67,7 @@
             $db->query($sql);
         }
         if (isset($_POST['sat'])) {
-            $sql= "INSERT INTO avialable_day (user_id, day) VALUES({$user_id}, 'Staturday')";
+            $sql= "INSERT INTO avialable_day (user_id, day) VALUES({$user_id}, 'Saturday')";
             $db->query($sql);
         }
         if (isset($_POST['sun'])) {
@@ -189,35 +189,41 @@
                 <select name="endTime" class="form-control"><?php echo get_times($default = '10:00');?></select>
                 <!-- <input type="time" id="endTime" class="form-control" name="endTime" placeholder="Available end time Time" > -->
               </div>
-              <div class="form-check">
-                <input type="checkbox" name="mon" class="form-check-input" id="exampleCheck1" checked>
-                <label class="form-check-label" for="exampleCheck1">Monday</label>
-              </div>
-              <div class="form-check">
-                <input type="checkbox" name="tues" class="form-check-input" id="exampleCheck1" checked>
-                <label class="form-check-label" for="exampleCheck1">Tuesday</label>
-              </div>
-              <div class="form-check">
-                <input type="checkbox" name="wed" class="form-check-input" id="exampleCheck1" checked>
-                <label class="form-check-label" for="exampleCheck1">Wednessday</label>
-              </div>
-              <div class="form-check">
-                <input type="checkbox" name="thrus" class="form-check-input" id="exampleCheck1" checked>
-                <label class="form-check-label" for="exampleCheck1">Thursday</label>
-              </div>
-              <div class="form-check">
-                <input type="checkbox" name="fri" class="form-check-input" id="exampleCheck1" checked>
-                <label class="form-check-label" for="exampleCheck1">Friday</label>
-              </div>
-              <div class="form-check">
-                <input type="checkbox" name="sat" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Staturday</label>
-              </div>
-              <div class="form-check">
-                <input type="checkbox" name="sun" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Sunday</label>
-              </div>
+              <br>
+              <div class="container">
+                <div class="row">
+                  <div class="col-2 form-check">
+                    <input type="checkbox" name="mon" id="exampleCheck1" checked> <br>
+                    <label class="form-check-label" for="exampleCheck1">Mon</label>
+                  </div>
+                  <div class="col-2 form-check">
+                    <input type="checkbox" name="tues" class="form-check-input" id="exampleCheck2" style="margin-left: 5px;" checked> <br>
+                    <label class="form-check-label" for="exampleCheck2">Tues</label>
+                  </div>
+                  <div class="col-2 form-check">
+                    <input type="checkbox" name="wed" class="form-check-input" id="exampleCheck3" style="margin-left: 5px;" checked> <br>
+                    <label class="form-check-label" for="exampleCheck3">Wed</label>
+                  </div>
+                  <div class="col-2 form-check">
+                    <input type="checkbox" name="thrus" class="form-check-input" id="exampleCheck4"  style="margin-left: 5px;" checked> <br>
+                    <label class="form-check-label" for="exampleCheck4">Thurs</label>
+                  </div>
+                  <div class="col-2 form-check">
+                    <input type="checkbox" name="fri" class="form-check-input" id="exampleCheck1" style="margin-left: 5px;" checked> <br>
+                    <label class="form-check-label" for="exampleCheck1">Fri</label>
+                  </div>
+                  <div class="col-2 form-check">
+                    <input type="checkbox" name="sat" class="form-check-input" style="margin-left: 5px;" id="exampleCheck1"> <br>
+                    <label class="form-check-label" for="exampleCheck1">Sat</label>
+                  </div>
 
+                  <div class="col-2 form-check">
+                    <input type="checkbox" name="sun" class="form-check-input" style="margin-left: 5px;" id="exampleCheck1"> <br>
+                    <label class="form-check-label" for="exampleCheck1">Sun</label>
+                  </div>
+                </div>
+              </div>
+              <br>
 
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
               <hr class="my-4">

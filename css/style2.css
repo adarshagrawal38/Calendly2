@@ -2,7 +2,14 @@
   --input-padding-x: 1.5rem;
   --input-padding-y: .75rem;
 }
-
+.form-check {
+  border-style: solid;
+   border-width: 1px;
+   padding-top: 1px;
+  padding-right: 1px;
+  padding-bottom: 1px;
+  padding-left: 10px;
+}
 body {
   background-color: #353943;
 }

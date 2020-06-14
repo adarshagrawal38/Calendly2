@@ -1,5 +1,8 @@
-.body
-{background-color: #f4f5f5;color: #768f86;font-family: "Times New Roman";cursor: default;}
+body{
+  background-color: #353943;
+  font-family: "Times New Roman";
+  cursor: default;
+}
 
 .row-content{
 

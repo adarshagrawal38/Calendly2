@@ -71,12 +71,12 @@
     <meta charset="utf-8">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="/css/booking.css">
-   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+   <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+   <!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
 
     <title>Booking</title>
   </head>
-  <body>
+  <body style="background-color: #353943;">
     <div class="container align-self-center" style="margin-top: 10%;">
       <div class="card">
         <h5 class="card-header">Meeting Details</h5>

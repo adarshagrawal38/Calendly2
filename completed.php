@@ -16,7 +16,7 @@ $user_id = $_SESSION['user_id'];
    <link rel="stylesheet" href="./css/welcomeStyle.css">
     <title>Calendely</title>
   </head>
-  <body>
+  <body style="background-color: #353943;">
 
     <div class="container">
       <div class="topnav">

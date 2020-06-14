@@ -22,7 +22,7 @@ session_start();
    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <title>Confirm</title>
   </head>
-  <body>
+  <body style="background-color: #353943;">
     <div class="container align-self-center" style="margin-top: 10%;">
       <div class="card">
         <h5 class="card-header">Confirmed</h5>
