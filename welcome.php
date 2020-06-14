@@ -62,6 +62,7 @@ if (isset($_SESSION['user_id'])) {
           <div class="col-auto">
             <h5 class="card-title"><strong> <?php
           echo $row['client_name']; ?> </strong></h5>
+            <p class="card-text"> <?php echo $row['client_email']; ?> </p>
               <p class="card-text"> <?php echo $row['description']; ?> </p>
           </div>
 
