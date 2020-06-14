@@ -6,6 +6,9 @@ Mysql Database is used in the project.
 database is hosted on aws,
 if you want to import it locally you can use ./database/celendly.sql, and change connection parameters in config.php.
 
+# server
+XAMPP is being used.
+
 # Registration Number
 19MCA0097
 
