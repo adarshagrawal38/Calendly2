@@ -24,6 +24,8 @@ $endTime = "";
      $_SESSION['user_name'] = $username;
     $startTime = $row['start_time'];
     $user_email = $row['user_email'];
+    $Fs = date( 'h.i A', strtotime($startTime));
+    $Fe = date( 'h.i A', strtotime($endTime) );
     $endTime = $row['end_time'];
   }else{
     echo "<h1> Invalid Url <h1>";
@@ -68,7 +70,8 @@ $endTime = "";
            //User have selected valid Date
            echo "Valid Date";
            //Validating time selected by user_id
-           $selTime = $_POST['timePicker'];
+           //$selTime = $_POST['timePicker'];
+           $selTime = $_POST['time'];
            echo "<br>Selected Time {$selTime}" ;
            if ($selTime == '') {
              // Invalid Time
@@ -129,34 +132,32 @@ $endTime = "";
     echo "UnAuthurized Access";
     //header("location: error.php");
   }
+  function get_times( $default = '09:00', $interval = '+60 minutes' ) {
 
-  function get_times(  $interval = '+60 minutes' ) {
+   $output = '';
+ include("config.php");
+   $user_id = $_SESSION['user_id'];
+   $sql = "SELECT * FROM user WHERE user_id={$user_id}";
+   $result = mysqli_query($db,$sql);
+   $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+    $startTime = $row['start_time'];
+   $endTime = $row['end_time'];
+   echo "<br> Functtion startTime";
 
-    $output = '';
+   $current = strtotime( '00:00' );
+   $end = strtotime( '23:59' );
 
-    $sql = "SELECT * FROM user WHERE user_id={$user_id}";
-    $result = mysqli_query($db,$sql);
-    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-     $startTime = $row['start_time'];
-    $endTime = $row['end_time'];
+   while( $current <= $end ) {
+       $time = date( 'H:i', $current );
+       $sel = ( $time == $default ) ? ' selected' : '';
 
-    $current = strtotime( $startTime );
-    $end = strtotime( $endTime );
-    $default = $startTime;
+       $output .= "<option value=\"{$time}\"{$sel}>" . date( 'h.i A', $current ) .'</option>';
+       $current = strtotime( $interval, $current );
+   }
 
-    //echo "<br> Currrent: {$current}";
-    //echo "<br> End: {$end}";
+   return $output;
+ }
 
-    while( $current <= $end ) {
-        $time = date( 'H:i', $current );
-        //$sel = ( $time == $default ) ? ' selected' : '';
-
-        $output .= "<option value=\"{$time}\"{$sel}>" . date( 'h.i A', $current ) .'</option>';
-        $current = strtotime( $interval, $current );
-    }
-
-    return $output;
-}
 
  ?>
 <html lang="en" dir="ltr">
@@ -180,7 +181,7 @@ $endTime = "";
             <div class="col-2">
                 <p class="card-text"> <img src="https://bks-partners.com/wp-content/uploads/2018/03/Clock-Grey.png" style="height:13px;width: 13px;padding-right: 5px;">1 hr Meeting </p>
                 <p class="card-text">Timing</p>
-                <strong> <?php echo $startTime.' - '.$endTime ?> </strong>
+                <strong> <?php echo $startTime.' - '.$endTime; ?> </strong>
             </div>
 
             <div class="col-7">
@@ -190,8 +191,8 @@ $endTime = "";
                   <!--Date picker -->
                   <input type="date" class="form-control" name="datePicker" id="datePicker"> <br>
                   <p class="card-text">Meeting Time</p>
-                  <select name="time"><?php echo get_times();?></select>
-                    <input class="form-control" type="time" id="timePicker" name="timePicker"> <br>
+                  <select name="time" class="form-control"><?php echo get_times();?></select>
+                    <!-- <input class="form-control" type="time" id="timePicker" name="timePicker"> <br> -->
                     <button type="submit" class="btn btn-primary" name="button">Proceed</button>
                 </div>
                 </form>

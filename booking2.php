@@ -21,7 +21,10 @@
     $selTime = $_GET['time'];
     $selectedDate = $_GET['seldate'];
     $nameOfDay = date('l', strtotime($selectedDate));
-    $displayTime = date('h.i', strtotime($selTime));
+    echo $selTime.":00";
+    $displayTime = date('h.i A', strtotime($selTime.":00"));
+    echo $displayTime;
+
     $formatedDate = date('F d, Y', strtotime($selectedDate));
   }
 
@@ -66,7 +69,7 @@
           <div class="row">
             <div class="col-2">
                 <p class="card-text"> <img src="https://bks-partners.com/wp-content/uploads/2018/03/Clock-Grey.png" style="height:13px;width: 13px;padding-right: 5px;">1 hr Meeting </p>
-                <strong> <?php echo $selTime." hrs"; ?> </strong> <br>
+                <strong> <?php echo $displayTime.""; ?> </strong> <br>
                 <?php echo $nameOfDay; ?> <br>
                 <strong> <?php echo $formatedDate; ?> </strong>
             </div>
