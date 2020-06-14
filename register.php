@@ -108,7 +108,7 @@
 
     <meta charset="utf-8">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="stylesheet" href="/css/style2.css">
+    <link rel="stylesheet" href="./css/style2.css">
     <title>Calendely</title>
   </head>
   <body>
@@ -141,7 +141,7 @@
             <h5 class="card-title text-center">Register</h5>
             <form class="form-signin" action="" method="post">
               <div class="form-label-group">
-                <label for="inputEmail" class="form-control-label">Email address</label>
+
                 <?php
                   if (isset($_GET['email'])) {
                     // code...
@@ -150,11 +150,12 @@
                     echo '<input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>';
                   }
                  ?>
+                 <label for="inputEmail" class="form-control-label">Email address</label>
 
               </div>
 
               <div class="form-label-group">
-                <label for="inputPassword" class="form-control-label">Password</label>
+
                 <?php
                   if (isset($_GET['password'])) {
                     // code...
@@ -163,10 +164,11 @@
                     echo '<input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>';
                   }
                  ?>
+                 <label for="inputPassword" class="form-control-label">Password</label>
 
               </div>
               <div class="form-label-group">
-                <label for="name" class="form-control-label">Full Name</label>
+
                 <?php
                   if (isset($_GET['name'])) {
                     // code...
@@ -175,13 +177,14 @@
                     echo '<input type="text" id="name" name="name" class="form-control" placeholder="Full Name" required>';
                   }
                  ?>
+                 <label for="name" class="form-control-label">Full Name</label>
               </div>
-              <div class="form-label-group">
+              <div class="">
                   <label for="startTime" class="form-control-label">Available start time</label>
                   <select name="startTime" class="form-control"><?php echo get_times();?></select>
                 <!-- <input type="time" id="startTime" class="form-control" name="startTime" placeholder="Available start time Time" > -->
               </div>
-              <div class="form-label-group">
+              <div class="">
                 <label for="endTime" class="form-control-label">Available end time</label>
                 <select name="endTime" class="form-control"><?php echo get_times($default = '10:00');?></select>
                 <!-- <input type="time" id="endTime" class="form-control" name="endTime" placeholder="Available end time Time" > -->
