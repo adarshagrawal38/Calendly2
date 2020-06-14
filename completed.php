@@ -30,7 +30,7 @@ $user_id = $_SESSION['user_id'];
         <p>Your URL: http://localhost/celendly/booking.php?user_id=<?php echo $user_id; ?></p>
       </div>
       <?php
-      include("config.php");
+      include("./config.php");
 
       $sql = "SELECT DATEDIFF(`meeting_date`, now()) AS 'DateDiff', TIMESTAMPDIFF(MINUTE,now() , `meeting_time`) AS 'timeDiff', `meeting_id`, `user_id`, `meeting_date`, `meeting_time`, `client_name`, `client_email`, `description` FROM `meetings` WHERE user_id = {$user_id} and(DATEDIFF(`meeting_date`, now()) < 0 OR (DATEDIFF(`meeting_date`, now()) = 0 and TIMESTAMPDIFF(MINUTE,now() , `meeting_time`) < 0))";
       //echo $sql;

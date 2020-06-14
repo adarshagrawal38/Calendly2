@@ -1,5 +1,5 @@
 <?php
- include("config.php");
+ include("./config.php");
  session_start();
   // $username = "Adarsh";
   // $selectedDate = "2020-06-18";
@@ -55,7 +55,7 @@
       $_SESSION['selTime'] = $selTime;
       $_SESSION['selectedDate'] = $selectedDate;
       //selTime=09&selectedDate=2020-01-12
-        header("Location: confirmPage.php?selTime=".$selTime."&selectedDate=".$selectedDate);
+        header("Location: ./confirmPage.php?selTime=".$selTime."&selectedDate=".$selectedDate);
 
       echo "record created successfully";
     } else {

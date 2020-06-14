@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
- include("config.php");
+ include("./config.php");
  session_start();
  $user_id = 0;
  $username = "";
@@ -55,7 +55,7 @@ $endTime = "";
 
        if ($match == 0) {
          $msg = "{$username}+is+not+availabel+on+{$nameOfDay}";
-         header("location: booking.php?error={$msg}&user_id={$user_id}");
+         header("location: ./booking.php?error={$msg}&user_id={$user_id}");
          echo "Invalid Day user_id";
        }else{
          echo "Valid day";
@@ -63,7 +63,7 @@ $endTime = "";
          if ($nowDate > $booking_date){
            //When user select PAST Date
            $msg = "Please+select+todays+or+future+date";
-           header("location: booking.php?error={$msg}&user_id={$user_id}");
+           header("location: ./booking.php?error={$msg}&user_id={$user_id}");
            echo "Invalid Date";
          }
          else {
@@ -76,7 +76,7 @@ $endTime = "";
            if ($selTime == '') {
              // Invalid Time
              $msg = "Please+select+time+in+which+{$username}+is+available";
-             header("location: booking.php?error={$msg}&user_id={$user_id}");
+             header("location: ./booking.php?error={$msg}&user_id={$user_id}");
              echo "<br>Invalid Time";
            }else {
              // Valid Times
@@ -109,16 +109,16 @@ $endTime = "";
                if ($count>0) {
                  // code...
                  $msg = "Sorry+Slot+not+available";
-                 header("location: booking.php?error={$msg}&user_id={$user_id}");
+                 header("location: ./booking.php?error={$msg}&user_id={$user_id}");
                  echo "<br> Sorry Slot not available {$row['user_id']}";
                }else {
                  echo "<br> Hurray Slot available";
                  //proceed for booking2
-                 header("location: booking2.php?seldate={$booking_date}&time={$onlyHrs}&user_id={$user_id}&user_name={$username}");
+                 header("location: ./booking2.php?seldate={$booking_date}&time={$onlyHrs}&user_id={$user_id}&user_name={$username}");
                }
              }else{
                $msg = "Please+select+time+in+which+{$username}+is+available";
-               header("location: booking.php?error={$msg}&user_id={$user_id}");
+               header("location: ./booking.php?error={$msg}&user_id={$user_id}");
                echo "<br> Time out of range";
                //header("Location: http://www.example.com/another-page.php");
              }
@@ -129,12 +129,12 @@ $endTime = "";
     }
   }else {
     echo "UnAuthurized Access";
-    header("location: error.php");
+    header("location: ./error.php");
   }
   function get_times( $default = '09:00', $interval = '+60 minutes' ) {
 
    $output = '';
- include("config.php");
+ include("./config.php");
    $user_id = $_SESSION['user_id'];
    $sql = "SELECT * FROM user WHERE user_id={$user_id}";
    $result = mysqli_query($db,$sql);

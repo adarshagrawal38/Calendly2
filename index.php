@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-   include("config.php");
+   include("./config.php");
    session_start();
    if (isset($_SESSION['user_id'])) {
      //echo "UserId {$_SESSION['user_id']}";
@@ -31,7 +31,7 @@
       //   }
       if($count == 1) {
          $_SESSION['user_id'] = $row['user_id'];
-         header("location: welcome.php");
+         header("location: ./welcome.php");
       }else {
          $error = "Your Login Name or Password is invalid";
          echo "<script>alert('Invalid login!');</script>";
@@ -76,7 +76,7 @@
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
               <hr class="my-4">
 
-              <a href="register.php" class="btn btn-lg btn-secondary btn-block text-uppercase">Register</a>
+              <a href="./register.php" class="btn btn-lg btn-secondary btn-block text-uppercase">Register</a>
               <!-- <button class="btn btn-lg btn-secondary btn-block text-uppercase" type="button">Register</button> -->
             </form>
           </div>

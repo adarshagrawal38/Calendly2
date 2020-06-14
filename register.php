@@ -2,7 +2,7 @@
 <?php
 
    session_start();
-   include("config.php");
+   include("./config.php");
    $email = '';
    $pass = '';
    $name = '';
@@ -78,7 +78,7 @@
         // session_start
         //session_register("user_id");
         $_SESSION['user_id'] = $user_id;
-        header("location: welcome.php");
+        header("location: ./welcome.php");
       }
       }
     }
